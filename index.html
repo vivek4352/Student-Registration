@@ -6,26 +6,29 @@
     <title>Speaker Session Registration | RGPV</title>
     <style>
         :root {
-            --primary: #003366;
-            --secondary: #e6a919;
-            --light: #f8f9fa;
-            --dark: #212529;
+            --primary-color: #0056b3;
+            --secondary-color: #003366;
+            --accent-color: #ff6b00;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --success-color: #28a745;
+            --error-color: #dc3545;
         }
         
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
             line-height: 1.6;
-            color: var(--dark);
+            color: var(--dark-color);
+            background-color: #f5f5f5;
         }
         
         .container {
-            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
@@ -33,83 +36,94 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.8));
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 80px 0;
+            padding: 4rem 0;
             text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
         }
         
-        .hero-banner {
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            max-width: 800px;
-            margin: 0 auto 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+            z-index: 1;
         }
         
         .hero h1 {
             font-size: 2.5rem;
-            margin-bottom: 20px;
+            margin-bottom: 1rem;
         }
         
         .hero p {
             font-size: 1.2rem;
             max-width: 800px;
-            margin: 0 auto 30px;
+            margin: 0 auto;
         }
         
         /* Form Section */
-        .registration {
-            padding: 60px 0;
-        }
-        
-        .form-container {
+        .registration-form {
             background: white;
+            padding: 2rem;
             border-radius: 8px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            padding: 40px;
-            max-width: 800px;
-            margin: 0 auto;
+            margin-bottom: 2rem;
         }
         
         .form-title {
             text-align: center;
-            margin-bottom: 30px;
-            color: var(--primary);
+            margin-bottom: 2rem;
+            color: var(--secondary-color);
         }
         
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 0.5rem;
             font-weight: 600;
+        }
+        
+        .form-group label.required::after {
+            content: " *";
+            color: var(--error-color);
         }
         
         .form-control {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
+            padding: 0.75rem;
+            border: 1px solid #ced4da;
             border-radius: 4px;
-            font-size: 16px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
         }
         
         .form-control:focus {
+            border-color: var(--primary-color);
             outline: none;
-            border-color: var(--primary);
+            box-shadow: 0 0 0 0.2rem rgba(0, 86, 179, 0.25);
         }
         
-        .row {
+        .form-row {
             display: flex;
             flex-wrap: wrap;
             margin: 0 -15px;
         }
         
-        .col {
+        .form-col {
             flex: 1;
             padding: 0 15px;
             min-width: 250px;
@@ -117,29 +131,51 @@
         
         .btn {
             display: inline-block;
-            background: var(--primary);
+            background-color: var(--primary-color);
             color: white;
-            padding: 12px 24px;
+            padding: 0.75rem 1.5rem;
             border: none;
             border-radius: 4px;
+            font-size: 1rem;
             cursor: pointer;
-            font-size: 16px;
-            font-weight: 600;
-            transition: background 0.3s;
+            transition: background-color 0.3s;
         }
         
         .btn:hover {
-            background: #002244;
+            background-color: var(--secondary-color);
         }
         
-        .error {
-            color: #dc3545;
-            font-size: 14px;
-            margin-top: 5px;
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        .error-message {
+            color: var(--error-color);
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
             display: none;
         }
         
-        /* Responsive */
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+        }
+        
+        .checkbox-group input {
+            margin-right: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        
+        /* Responsive Adjustments */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2rem;
@@ -149,138 +185,137 @@
                 font-size: 1rem;
             }
             
-            .hero-banner {
-                margin-bottom: 20px;
-            }
-            
-            .form-container {
-                padding: 30px 20px;
-            }
-            
-            .col {
+            .form-col {
                 flex: 100%;
-                margin-bottom: 15px;
+                margin-bottom: 1rem;
+            }
+            
+            .form-col:last-child {
+                margin-bottom: 0;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Hero Section with the new image -->
+    <!-- Hero Section with Image -->
     <section class="hero">
-        <div class="container">
-            <img src="new_slide1.jpg" alt="Event Keywords: Auto Business Customer Services Discovery Facility" class="hero-banner">
+        <img src="new_slide1.jpg" alt="Rajiv Gandhi Proudyogiki Vishwavidyalaya" class="hero-image">
+        <div class="container hero-content">
             <h1>Finding the Correct Balance</h1>
             <p>Join us for an insightful speaker session on balancing the urge to learn with the urge to earn, hosted by Rajiv Gandhi Proudyogiki Vishwavidyalaya.</p>
         </div>
     </section>
     
     <!-- Registration Form -->
-    <section class="registration">
-        <div class="container">
-            <div class="form-container">
-                <h2 class="form-title">Registration Form</h2>
-                <form id="registrationForm">
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="firstName">First Name*</label>
-                                <input type="text" id="firstName" class="form-control" required>
-                                <div class="error" id="firstNameError">Please enter your first name</div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="lastName">Last Name*</label>
-                                <input type="text" id="lastName" class="form-control" required>
-                                <div class="error" id="lastNameError">Please enter your last name</div>
-                            </div>
-                        </div>
-                    </div>
-                    
+    <div class="container">
+        <form id="registrationForm" class="registration-form" novalidate>
+            <h2 class="form-title">Speaker Session Registration</h2>
+            
+            <div class="form-row">
+                <div class="form-col">
                     <div class="form-group">
-                        <label for="email">Email Address*</label>
-                        <input type="email" id="email" class="form-control" required>
-                        <div class="error" id="emailError">Please enter a valid email address</div>
+                        <label for="firstName" class="required">First Name</label>
+                        <input type="text" id="firstName" class="form-control" required>
+                        <div class="error-message" id="firstNameError">Please enter your first name</div>
                     </div>
-                    
+                </div>
+                
+                <div class="form-col">
                     <div class="form-group">
-                        <label for="phone">Phone Number*</label>
-                        <input type="tel" id="phone" class="form-control" required>
-                        <div class="error" id="phoneError">Please enter a valid phone number</div>
+                        <label for="lastName" class="required">Last Name</label>
+                        <input type="text" id="lastName" class="form-control" required>
+                        <div class="error-message" id="lastNameError">Please enter your last name</div>
                     </div>
-                    
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="department">Department*</label>
-                                <select id="department" class="form-control" required>
-                                    <option value="">Select Department</option>
-                                    <option value="Computer Science">Computer Science</option>
-                                    <option value="Electrical Engineering">Electrical Engineering</option>
-                                    <option value="Mechanical Engineering">Mechanical Engineering</option>
-                                    <option value="Civil Engineering">Civil Engineering</option>
-                                    <option value="Information Technology">Information Technology</option>
-                                    <option value="B.Tech. (Computer Science and Business Systems)">B.Tech. (Computer Science and Business Systems)</option>
-                                    <option value="B.Tech. in CSE (Artificial Intelligence & Machine Learning)">B.Tech. in CSE (Artificial Intelligence & Machine Learning)</option>
-                                    <option value="B.Tech. in CSE (Data Science)">B.Tech. in CSE (Data Science)</option>
-                                    <option value="M.Tech. (Data Science)">M.Tech. (Data Science)</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                                <div class="error" id="departmentError">Please select your department</div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="year">Year of Study*</label>
-                                <select id="year" class="form-control" required>
-                                    <option value="">Select Year</option>
-                                    <option value="1st Year">1st Year</option>
-                                    <option value="2nd Year">2nd Year</option>
-                                    <option value="3rd Year">3rd Year</option>
-                                    <option value="4th Year">4th Year</option>
-                                </select>
-                                <div class="error" id="yearError">Please select your year of study</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="checkIn">Check-in Time*</label>
-                                <input type="time" id="checkIn" class="form-control" required>
-                                <div class="error" id="checkInError">Please select check-in time</div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="checkOut">Check-out Time*</label>
-                                <input type="time" id="checkOut" class="form-control" required>
-                                <div class="error" id="checkOutError">Please select check-out time</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" id="agreeTerms" required> I agree to the terms and conditions*
-                        </label>
-                        <div class="error" id="termsError">You must agree to the terms</div>
-                    </div>
-                    
-                    <button type="submit" class="btn">Submit RSVP</button>
-                </form>
+                </div>
             </div>
+            
+            <div class="form-row">
+                <div class="form-col">
+                    <div class="form-group">
+                        <label for="email" class="required">Email Address</label>
+                        <input type="email" id="email" class="form-control" required>
+                        <div class="error-message" id="emailError">Please enter a valid email address</div>
+                    </div>
+                </div>
+                
+                <div class="form-col">
+                    <div class="form-group">
+                        <label for="phone" class="required">Phone Number</label>
+                        <input type="tel" id="phone" class="form-control" required>
+                        <div class="error-message" id="phoneError">Please enter a valid phone number</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="department" class="required">Department</label>
+                <select id="department" class="form-control" required>
+                    <option value="">Select your department</option>
+                    <option value="B. Tech. (Computer Science and Business systems)">B. Tech. (Computer Science and Business systems)</option>
+                    <option value="B. Tech. in CSE (Artificial Intelligence & Machine Learning)">B. Tech. in CSE (Artificial Intelligence & Machine Learning)</option>
+                    <option value="B. Tech. in CSE (Data Science)">B. Tech. in CSE (Data Science)</option>
+                    <option value="M.Tech. (Data Science)">M.Tech. (Data Science)</option>
+                </select>
+                <div class="error-message" id="departmentError">Please select your department</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="year" class="required">Year</label>
+                <select id="year" class="form-control" required>
+                    <option value="">Select your year</option>
+                    <option value="1st year">1st year</option>
+                    <option value="2nd year">2nd year</option>
+                    <option value="3rd year">3rd year</option>
+                    <option value="4th year">4th year</option>
+                </select>
+                <div class="error-message" id="yearError">Please select your year</div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-col">
+                    <div class="form-group">
+                        <label for="checkIn" class="required">Check-in Time</label>
+                        <input type="time" id="checkIn" class="form-control" required>
+                        <div class="error-message" id="checkInError">Please select check-in time</div>
+                    </div>
+                </div>
+                
+                <div class="form-col">
+                    <div class="form-group">
+                        <label for="checkOut" class="required">Check-out Time</label>
+                        <input type="time" id="checkOut" class="form-control" required>
+                        <div class="error-message" id="checkOutError">Please select check-out time</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms" class="required">I agree to the terms and conditions</label>
+                </div>
+                <div class="error-message" id="termsError">You must agree to the terms and conditions</div>
+            </div>
+            
+            <button type="submit" class="btn btn-block">Submit Registration</button>
+        </form>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Rajiv Gandhi Proudyogiki Vishwavidyalaya. All rights reserved.</p>
         </div>
-    </section>
+    </footer>
     
     <script>
         document.getElementById('registrationForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            let isValid = true;
             
-            // Reset errors
-            document.querySelectorAll('.error').forEach(el => el.style.display = 'none');
+            // Reset error messages
+            const errorMessages = document.querySelectorAll('.error-message');
+            errorMessages.forEach(msg => msg.style.display = 'none');
+            
+            let isValid = true;
             
             // Validate first name
             const firstName = document.getElementById('firstName');
@@ -306,7 +341,7 @@
             
             // Validate phone
             const phone = document.getElementById('phone');
-            const phoneRegex = /^\d{10}$/;
+            const phoneRegex = /^[0-9]{10}$/;
             if (!phoneRegex.test(phone.value)) {
                 document.getElementById('phoneError').style.display = 'block';
                 isValid = false;
@@ -319,46 +354,65 @@
                 isValid = false;
             }
             
-            // Validate year of study
+            // Validate year
             const year = document.getElementById('year');
             if (!year.value) {
                 document.getElementById('yearError').style.display = 'block';
                 isValid = false;
             }
             
-            // Validate check-in/out
+            // Validate check-in time
             const checkIn = document.getElementById('checkIn');
-            const checkOut = document.getElementById('checkOut');
             if (!checkIn.value) {
                 document.getElementById('checkInError').style.display = 'block';
                 isValid = false;
             }
+            
+            // Validate check-out time
+            const checkOut = document.getElementById('checkOut');
             if (!checkOut.value) {
                 document.getElementById('checkOutError').style.display = 'block';
                 isValid = false;
             }
             
-            // Validate terms
-            const agreeTerms = document.getElementById('agreeTerms');
-            if (!agreeTerms.checked) {
+            // Validate terms and conditions
+            const terms = document.getElementById('terms');
+            if (!terms.checked) {
                 document.getElementById('termsError').style.display = 'block';
                 isValid = false;
             }
             
+            // Check if check-out is after check-in
+            if (checkIn.value && checkOut.value && checkOut.value <= checkIn.value) {
+                document.getElementById('checkOutError').textContent = 'Check-out time must be after check-in time';
+                document.getElementById('checkOutError').style.display = 'block';
+                isValid = false;
+            }
+            
             if (isValid) {
-                alert('Thank you for your registration! We look forward to seeing you at the event.');
+                // Form is valid, you can submit it or show success message
+                alert('Registration submitted successfully! Thank you for registering.');
                 this.reset();
             }
         });
         
-        // Time validation
-        document.getElementById('checkOut').addEventListener('change', function() {
-            const checkIn = document.getElementById('checkIn').value;
-            const checkOut = this.value;
-            
-            if (checkIn && checkOut && checkOut <= checkIn) {
-                alert('Check-out time must be after check-in time');
-                this.value = '';
+        // Real-time validation for email
+        document.getElementById('email').addEventListener('input', function() {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(this.value)) {
+                document.getElementById('emailError').style.display = 'block';
+            } else {
+                document.getElementById('emailError').style.display = 'none';
+            }
+        });
+        
+        // Real-time validation for phone
+        document.getElementById('phone').addEventListener('input', function() {
+            const phoneRegex = /^[0-9]{10}$/;
+            if (!phoneRegex.test(this.value)) {
+                document.getElementById('phoneError').style.display = 'block';
+            } else {
+                document.getElementById('phoneError').style.display = 'none';
             }
         });
     </script>
