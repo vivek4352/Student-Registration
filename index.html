@@ -3,305 +3,341 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RGPV Speaker Session: Learn vs Earn</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Speaker Session Registration | RGPV</title>
     <style>
-        .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+        :root {
+            --primary: #003366;
+            --secondary: #e6a919;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.8));
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 100px 20px;
+            padding: 80px 0;
             text-align: center;
-            margin-bottom: 40px;
+        }
+        
+        .hero-banner {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Rest of your existing CSS remains the same */
+        /* Form Section */
+        .registration {
+            padding: 60px 0;
         }
         
         .form-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
             max-width: 800px;
             margin: 0 auto;
-            padding: 30px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            margin-bottom: 40px;
         }
         
         .form-title {
             text-align: center;
             margin-bottom: 30px;
-            color: #2c3e50;
+            color: var(--primary);
         }
         
-        .btn-custom {
-            background-color: #3498db;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: all 0.3s;
+        .form-group {
+            margin-bottom: 20px;
         }
         
-        .btn-custom:hover {
-            background-color: #2980b9;
-            transform: translateY(-2px);
-        }
-        
-        .invalid-feedback {
-            display: none;
-            color: #e74c3c;
-        }
-        
-        .was-validated .form-control:invalid ~ .invalid-feedback {
+        .form-group label {
             display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
         }
         
-        .check-in-out {
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+        
+        .col {
+            flex: 1;
+            padding: 0 15px;
+            min-width: 250px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #002244;
+        }
+        
+        .error {
+            color: #dc3545;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-banner {
+                margin-bottom: 20px;
+            }
+            
+            .form-container {
+                padding: 30px 20px;
+            }
+            
+            .col {
+                flex: 100%;
+                margin-bottom: 15px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero-section">
+    <!-- Hero Section with the new image -->
+    <section class="hero">
         <div class="container">
-            <h1 class="display-4">Finding the Correct Balance</h1>
-            <p class="lead">Between the Urge to Learn and the Urge to Earn</p>
-            <p>Join us for an insightful speaker session at RGPV College</p>
-            <p><strong>Date:</strong> June 15, 2023 | <strong>Time:</strong> 2:00 PM | <strong>Venue:</strong> College Auditorium</p>
+            <img src="new_slide1.jpg" alt="Event Keywords: Auto Business Customer Services Discovery Facility" class="hero-banner">
+            <h1>Finding the Correct Balance</h1>
+            <p>Join us for an insightful speaker session on balancing the urge to learn with the urge to earn, hosted by Rajiv Gandhi Proudyogiki Vishwavidyalaya.</p>
         </div>
     </section>
-
+    
     <!-- Registration Form -->
-    <div class="container form-container">
-        <h2 class="form-title">Session Registration</h2>
-        <form id="registrationForm" class="needs-validation" novalidate>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="firstName" class="form-label">First Name</label>
-                    <input type="text" class="form-control" id="firstName" required>
-                    <div class="invalid-feedback">
-                        Please provide your first name.
+    <section class="registration">
+        <div class="container">
+            <div class="form-container">
+                <h2 class="form-title">Registration Form</h2>
+                <form id="registrationForm">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="firstName">First Name*</label>
+                                <input type="text" id="firstName" class="form-control" required>
+                                <div class="error" id="firstNameError">Please enter your first name</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="lastName">Last Name*</label>
+                                <input type="text" id="lastName" class="form-control" required>
+                                <div class="error" id="lastNameError">Please enter your last name</div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="lastName" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="lastName" required>
-                    <div class="invalid-feedback">
-                        Please provide your last name.
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address*</label>
+                        <input type="email" id="email" class="form-control" required>
+                        <div class="error" id="emailError">Please enter a valid email address</div>
                     </div>
-                </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number*</label>
+                        <input type="tel" id="phone" class="form-control" required>
+                        <div class="error" id="phoneError">Please enter a valid phone number</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="department">Department*</label>
+                        <select id="department" class="form-control" required>
+                            <option value="">Select Department</option>
+                            <option value="Computer Science">Computer Science</option>
+                            <option value="Electrical Engineering">Electrical Engineering</option>
+                            <option value="Mechanical Engineering">Mechanical Engineering</option>
+                            <option value="Civil Engineering">Civil Engineering</option>
+                            <option value="Information Technology">Information Technology</option>
+                            <option value="B.Tech. (Computer Science and Business Systems)">B.Tech. (Computer Science and Business Systems)</option>
+                            <option value="B.Tech. in CSE (Artificial Intelligence & Machine Learning)">B.Tech. in CSE (Artificial Intelligence & Machine Learning)</option>
+                            <option value="B.Tech. in CSE (Data Science)">B.Tech. in CSE (Data Science)</option>
+                            <option value="M.Tech. (Data Science)">M.Tech. (Data Science)</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <div class="error" id="departmentError">Please select your department</div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="checkIn">Check-in Time*</label>
+                                <input type="time" id="checkIn" class="form-control" required>
+                                <div class="error" id="checkInError">Please select check-in time</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="checkOut">Check-out Time*</label>
+                                <input type="time" id="checkOut" class="form-control" required>
+                                <div class="error" id="checkOutError">Please select check-out time</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="agreeTerms" required> I agree to the terms and conditions*
+                        </label>
+                        <div class="error" id="termsError">You must agree to the terms</div>
+                    </div>
+                    
+                    <button type="submit" class="btn">Submit RSVP</button>
+                </form>
             </div>
-            
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" required>
-                <div class="invalid-feedback">
-                    Please provide a valid email address.
-                </div>
-            </div>
-            
-            <div class="mb-3">
-                <label for="phone" class="form-label">Phone Number</label>
-                <input type="tel" class="form-control" id="phone" pattern="[0-9]{10}" required>
-                <div class="invalid-feedback">
-                    Please provide a valid 10-digit phone number.
-                </div>
-            </div>
-            
-            <div class="mb-3">
-                <label for="rollNumber" class="form-label">Roll Number</label>
-                <input type="text" class="form-control" id="rollNumber" required>
-                <div class="invalid-feedback">
-                    Please provide your roll number.
-                </div>
-            </div>
-            
-            <div class="mb-3">
-                <label for="branch" class="form-label">Branch</label>
-                <select class="form-select" id="branch" required>
-                    <option value="" selected disabled>Select your branch</option>
-                    <option value="CSE">Computer Science</option>
-                    <option value="IT">Information Technology</option>
-                    <option value="ECE">Electronics</option>
-                    <option value="ME">Mechanical</option>
-                    <option value="CE">Civil</option>
-                    <option value="EE">Electrical</option>
-                </select>
-                <div class="invalid-feedback">
-                    Please select your branch.
-                </div>
-            </div>
-            
-            <div class="mb-3">
-                <label for="year" class="form-label">Year</label>
-                <select class="form-select" id="year" required>
-                    <option value="" selected disabled>Select your year</option>
-                    <option value="1">First Year</option>
-                    <option value="2">Second Year</option>
-                    <option value="3">Third Year</option>
-                    <option value="4">Fourth Year</option>
-                </select>
-                <div class="invalid-feedback">
-                    Please select your year.
-                </div>
-            </div>
-            
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="terms" required>
-                <label class="form-check-label" for="terms">I agree to the terms and conditions</label>
-                <div class="invalid-feedback">
-                    You must agree before submitting.
-                </div>
-            </div>
-            
-            <div class="d-grid gap-2">
-                <button class="btn btn-custom btn-lg" type="submit">Register for Session</button>
-            </div>
-        </form>
-        
-        <!-- Check-in/Check-out Section -->
-        <div class="check-in-out mt-5">
-            <h3 class="text-center mb-4">Attendance</h3>
-            <form id="attendanceForm">
-                <div class="mb-3">
-                    <label for="attendeeEmail" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="attendeeEmail" required>
-                </div>
-                <div class="d-flex justify-content-between">
-                    <button type="button" class="btn btn-success" id="checkInBtn">Check In</button>
-                    <button type="button" class="btn btn-warning" id="checkOutBtn">Check Out</button>
-                </div>
-                <div id="attendanceMessage" class="mt-3 text-center"></div>
-            </form>
         </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </section>
+    
     <script>
-        // Form validation
-        (function () {
-            'use strict'
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let isValid = true;
             
-            const form = document.getElementById('registrationForm')
+            // Reset errors
+            document.querySelectorAll('.error').forEach(el => el.style.display = 'none');
             
-            form.addEventListener('submit', function (event) {
-                if (!form.checkValidity()) {
-                    event.preventDefault()
-                    event.stopPropagation()
-                } else {
-                    event.preventDefault()
-                    registerStudent()
-                }
-                
-                form.classList.add('was-validated')
-            }, false)
-        })()
+            // Validate first name
+            const firstName = document.getElementById('firstName');
+            if (!firstName.value.trim()) {
+                document.getElementById('firstNameError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate last name
+            const lastName = document.getElementById('lastName');
+            if (!lastName.value.trim()) {
+                document.getElementById('lastNameError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate email
+            const email = document.getElementById('email');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email.value)) {
+                document.getElementById('emailError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate phone
+            const phone = document.getElementById('phone');
+            const phoneRegex = /^\d{10}$/;
+            if (!phoneRegex.test(phone.value)) {
+                document.getElementById('phoneError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate department
+            const department = document.getElementById('department');
+            if (!department.value) {
+                document.getElementById('departmentError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate check-in/out
+            const checkIn = document.getElementById('checkIn');
+            const checkOut = document.getElementById('checkOut');
+            if (!checkIn.value) {
+                document.getElementById('checkInError').style.display = 'block';
+                isValid = false;
+            }
+            if (!checkOut.value) {
+                document.getElementById('checkOutError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate terms
+            const agreeTerms = document.getElementById('agreeTerms');
+            if (!agreeTerms.checked) {
+                document.getElementById('termsError').style.display = 'block';
+                isValid = false;
+            }
+            
+            if (isValid) {
+                alert('Thank you for your registration! We look forward to seeing you at the event.');
+                this.reset();
+            }
+        });
         
-        // Register student function
-        async function registerStudent() {
-            const studentData = {
-                firstName: document.getElementById('firstName').value,
-                lastName: document.getElementById('lastName').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                rollNumber: document.getElementById('rollNumber').value,
-                branch: document.getElementById('branch').value,
-                year: document.getElementById('year').value
-            }
+        // Time validation
+        document.getElementById('checkOut').addEventListener('change', function() {
+            const checkIn = document.getElementById('checkIn').value;
+            const checkOut = this.value;
             
-            try {
-                const response = await fetch('/api/students', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(studentData)
-                })
-                
-                const data = await response.json()
-                
-                if (response.ok) {
-                    alert('Registration successful! You will receive a confirmation email shortly.')
-                    form.reset()
-                    form.classList.remove('was-validated')
-                } else {
-                    alert('Registration failed: ' + (data.message || 'Unknown error'))
-                }
-            } catch (error) {
-                console.error('Error:', error)
-                alert('Registration failed. Please try again later.')
+            if (checkIn && checkOut && checkOut <= checkIn) {
+                alert('Check-out time must be after check-in time');
+                this.value = '';
             }
-        }
-        
-        // Attendance functions
-        document.getElementById('checkInBtn').addEventListener('click', async function() {
-            const email = document.getElementById('attendeeEmail').value
-            if (!email) {
-                document.getElementById('attendanceMessage').textContent = 'Please enter your email'
-                document.getElementById('attendanceMessage').className = 'mt-3 text-center text-danger'
-                return
-            }
-            
-            try {
-                const response = await fetch('/api/attendance/checkin', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ email })
-                })
-                
-                const data = await response.json()
-                
-                if (response.ok) {
-                    document.getElementById('attendanceMessage').textContent = 'Checked in successfully!'
-                    document.getElementById('attendanceMessage').className = 'mt-3 text-center text-success'
-                } else {
-                    document.getElementById('attendanceMessage').textContent = data.message || 'Check-in failed'
-                    document.getElementById('attendanceMessage').className = 'mt-3 text-center text-danger'
-                }
-            } catch (error) {
-                console.error('Error:', error)
-                document.getElementById('attendanceMessage').textContent = 'Check-in failed. Please try again.'
-                document.getElementById('attendanceMessage').className = 'mt-3 text-center text-danger'
-            }
-        })
-        
-        document.getElementById('checkOutBtn').addEventListener('click', async function() {
-            const email = document.getElementById('attendeeEmail').value
-            if (!email) {
-                document.getElementById('attendanceMessage').textContent = 'Please enter your email'
-                document.getElementById('attendanceMessage').className = 'mt-3 text-center text-danger'
-                return
-            }
-            
-            try {
-                const response = await fetch('/api/attendance/checkout', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ email })
-                })
-                
-                const data = await response.json()
-                
-                if (response.ok) {
-                    document.getElementById('attendanceMessage').textContent = 'Checked out successfully!'
-                    document.getElementById('attendanceMessage').className = 'mt-3 text-center text-success'
-                } else {
-                    document.getElementById('attendanceMessage').textContent = data.message || 'Check-out failed'
-                    document.getElementById('attendanceMessage').className = 'mt-3 text-center text-danger'
-                }
-            } catch (error) {
-                console.error('Error:', error)
-                document.getElementById('attendanceMessage').textContent = 'Check-out failed. Please try again.'
-                document.getElementById('attendanceMessage').className = 'mt-3 text-center text-danger'
-            }
-        })
+        });
     </script>
 </body>
 </html>
